@@ -2,9 +2,6 @@
 
 ERROR: PHP Warning: file_get_contents (/opt/unetlab/platform/): failed to open stream: No such file or directory in /opt/unetlab/html/includes/init.php on line 71   
 
-👤 Reported by:
-Marlene Marcía Bernal. git: @mmarciab007
-
 📋 Description of the problem:
 According to my research, this error means that the file_get_contents() function is attempting to read a directory as if it were a file.    
 Specifically, line 71 of init.php is likely trying to read the contents of the /opt/unetlab/platform/ directory, which is not a file, and thus the operation fails.   
@@ -13,12 +10,7 @@ This issue happens - At least, for me, after uploaded the firmware image and run
 As you remember and may know, we fixed permission to make sure that the system has the right access to directories and files of EVE-NG,    
 avoiding permissions issues that may prevent the start of execution of some functions. 
 
-🧪 Diagnose Steps:
-This is what worked for me. I digged a lot to have this issue fix for my lab environment and honestly, this was the best solution.   
-Please note that I was - And still using EVE Community instead of Pro and using VMWare Workstation Pro.   
-
 🛠️ Solution:
-
 1. Open EVE-NG as usual on VMWare. - I suggest that, once you open EVE-NG on VMWare and logged in, open Putty and connect to the IP address shown before login. Ex.: 192.168.0.19.
 2. Once you are login on Putty, run the following command -Right-click for paste:   
     dmesg | grep -i cpu | grep -i -e intel -e amd
